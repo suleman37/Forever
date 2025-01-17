@@ -62,8 +62,13 @@ const Navbar = () => {
         <div className={`absolute top-0 left-0 bottom-0 overflow-hidden bg-white z-10 transition-all ${visible ? "w-full" :"w-0"}`}>
           <div className="flex flex-col text-gray-500">
             <div className="flex items-center gap-4 p-3">
-              <img src={dropdown} className="h-4 rotate-180" alt="dropdown" />
+              <img onClick={() => setVisible(!visible)} src={dropdown} className="h-4 rotate-180 cursor-pointer" alt="dropdown" />
+              <p>Back</p>
             </div>
+            <NavLink className="py-2 pl-6 border"  onClick={() => setVisible(!visible)} to="/">HOME</NavLink>
+            <NavLink className="py-2 pl-6 border"  onClick={() => setVisible(!visible)} to="/collection">COLLECTION</NavLink>
+            <NavLink className="py-2 pl-6 border"  onClick={() => setVisible(!visible)} to="/about">ABOUT</NavLink>
+            <NavLink className="py-2 pl-6 border"  onClick={() => setVisible(!visible)} to="/contact">CONTACT</NavLink>
           </div>
         </div>
       </div>
