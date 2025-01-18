@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import { productsData } from "../assets/assets";
+import { products } from "../assets/frontend_assets/assets";
 
 export const ShopContext = createContext(null);
 
@@ -7,7 +7,7 @@ const ShopContextProvider = (props) => {
   const currency = "$";
   const deliveryCharge = 10;
   const value = {
-    productsData , currency , deliveryCharge
+    products , currency , deliveryCharge
   };
 
   return (
