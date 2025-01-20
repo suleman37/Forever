@@ -12,7 +12,7 @@ const Navbar = () => {
   return (
     <React.Fragment>
       <div className="flex items-center justify-between py-5 font-medium">
-        <img src={logo} className="w-36" alt="Logo" />
+        <Link to="/"><img src={logo} className="w-36" alt="Logo" /></Link>
         <ul className="sm:flex gap-5 text-sm text-gray-700 hidden">
           <NavLink to="/" className="flex flex-col items-center gap-1">
             <p>HOME</p>
@@ -56,19 +56,57 @@ const Navbar = () => {
               0
             </p>
           </Link>
-          <img onClick={() => setVisible(!visible)} src={Menu} className="w-5 cursor-pointer sm:hidden" alt="menu" />
+          <img
+            onClick={() => setVisible(!visible)}
+            src={Menu}
+            className="w-5 cursor-pointer sm:hidden"
+            alt="menu"
+          />
         </div>
         {/* Side Menu For Small Screens */}
-        <div className={`absolute top-0 left-0 bottom-0 overflow-hidden bg-white z-10 transition-all ${visible ? "w-full" :"w-0"}`}>
+        <div
+          className={`absolute top-0 left-0 bottom-0 overflow-hidden bg-white z-10 transition-all ${
+            visible ? "w-full" : "w-0"
+          }`}
+        >
           <div className="flex flex-col text-gray-500">
             <div className="flex items-center gap-4 p-3">
-              <img onClick={() => setVisible(!visible)} src={dropdown} className="h-4 rotate-180 cursor-pointer" alt="dropdown" />
+              <img
+                onClick={() => setVisible(!visible)}
+                src={dropdown}
+                className="h-4 rotate-180 cursor-pointer"
+                alt="dropdown"
+              />
               <p>Back</p>
             </div>
-            <NavLink className="py-2 pl-6 border"  onClick={() => setVisible(!visible)} to="/">HOME</NavLink>
-            <NavLink className="py-2 pl-6 border"  onClick={() => setVisible(!visible)} to="/collection">COLLECTION</NavLink>
-            <NavLink className="py-2 pl-6 border"  onClick={() => setVisible(!visible)} to="/about">ABOUT</NavLink>
-            <NavLink className="py-2 pl-6 border"  onClick={() => setVisible(!visible)} to="/contact">CONTACT</NavLink>
+            <NavLink
+              className="py-2 pl-6 border"
+              onClick={() => setVisible(!visible)}
+              to="/"
+            >
+              HOME
+            </NavLink>
+            <NavLink
+              className="py-2 pl-6 border"
+              onClick={() => setVisible(!visible)}
+              to="/collection"
+            >
+              COLLECTION
+            </NavLink>
+            <NavLink
+              className="py-2 pl-6 border"
+              onClick={() => setVisible(!visible)}
+              to="/about"
+            >
+              ABOUT
+            </NavLink>
+            <NavLink
+              className="py-2 pl-6 border"
+              onClick={() => setVisible(!visible)}
+              to="/contact"
+            >
+              CONTACT
+            </NavLink>
           </div>
         </div>
       </div>

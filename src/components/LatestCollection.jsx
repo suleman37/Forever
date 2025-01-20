@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { ShopContext } from "../context/ShopContext";
-import ProductItem from "./ProductItem";
+import ProductItem from "../components/ProductItem";
 import Title from "./Title";
 
 const LatestCollection = () => {
@@ -19,17 +19,19 @@ const LatestCollection = () => {
             blanditiis temporibus iure architecto!
           </p>
         </div>
-        {/* <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 gap-y-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 gap-y-6">
           {latestProduct.map((item, index) => {
-            <ProductItem
-              key={index}
-              id={item.id}
-              name={item.name}
-              price={item.price}
-              image={item.image}
-            />
+            return (
+              <ProductItem
+                key={index}
+                id={item.id}
+                name={item.name}
+                price={item.price}
+                image={item.image}
+              />
+            );
           })}
-        </div> */}
+        </div>
       </div>
     </>
   );
