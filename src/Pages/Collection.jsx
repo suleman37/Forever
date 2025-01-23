@@ -8,7 +8,7 @@ const Collection = () => {
   const { products } = useContext(ShopContext);
   const [ShowFilter, setShowFilter] = useState(false);
   const [selectedCategories, setSelectedCategories] = useState([]);
-  const [selectedTypes, setSelectedTypes] = useState([]);
+  const [selectedTypes, setSelectedTypes] = useState([]); // Corrected state declaration
 
   const toggleFilter = () => {
     setShowFilter(!ShowFilter);
@@ -23,6 +23,7 @@ const Collection = () => {
 
   const handleTypeChange = (event) => {
     const { value, checked } = event.target;
+    console.log(value);
     setSelectedTypes((prev) =>
       checked ? [...prev, value] : prev.filter((type) => type !== value)
     );
