@@ -5,7 +5,7 @@ import Title from "../components/Title";
 import ProductItem from "../components/ProductItem";
 
 const Collection = () => {
-  const { products } = useContext(ShopContext);
+  const { products, search  } = useContext(ShopContext);
   const [showFilter, setShowFilter] = useState(false);
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [selectedTypes, setSelectedTypes] = useState([]);
@@ -51,7 +51,10 @@ const Collection = () => {
       selectedCategories.includes(product.category);
     const typeMatch =
       selectedTypes.length === 0 || selectedTypes.includes(product.type);
-    return categoryMatch && typeMatch;
+    const searchMatch =
+      search === "" ||
+      product.name.toLowerCase().includes(search.toLowerCase());
+    return categoryMatch && typeMatch && searchMatch;
   });
 
   const sortedProducts = sortProduct();
