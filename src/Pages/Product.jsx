@@ -1,12 +1,15 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { ShopContext } from "../context/ShopContext";
+import star_icon from "../assets/frontend_assets/star_icon.png";
+import dull_star_icon from "../assets/frontend_assets/star_dull_icon.png";
 
 const Product = () => {
   const { id } = useParams();
-  const { products } = useContext(ShopContext);
+  const { products, currency } = useContext(ShopContext);
   const [productData, setProductData] = useState(false);
   const [image, setImage] = useState("");
+  const [size, setSize] = useState("");
   console.log(id);
 
   const fetchProductData = async () => {
@@ -46,6 +49,40 @@ const Product = () => {
         </div>
 
         {/* Products Info */}
+        <div className="flex-1">
+          <h1 className="font-medium text-2xl mt-2">{productData.name}</h1>
+          <div className="flex item-center gap-1 mt-2">
+            <img src={star_icon} alt="star" className="w-5 5" />
+            <img src={star_icon} alt="star" className="w-5 5" />
+            <img src={star_icon} alt="star" className="w-5 5" />
+            <img src={star_icon} alt="star" className="w-5 5" />
+            <img src={dull_star_icon} alt="star" className="w-5 5" />
+            <p className="pl-2">(122)</p>
+          </div>
+          <p className="mt-5 text-3xl font-medium">
+            {currency}
+            {productData.price}
+          </p>
+          <p className="mt-5 text-gray-500 md:w-4/5">
+            {productData.description}
+          </p>
+          <div className="flex flex-col gap-4 my-8">
+            <p>Select Size</p>
+            <div className="flex gap-2">
+              {
+                productData.sizes.map((item, index) => (
+                  <div
+                    className={`border border-gray-300 px-4 py-2 cursor-pointer ${size === item ? "bg-black text-white" : ""}`}
+                    key={index}
+                    onClick={() => setSize(item)}
+                  >
+                    {item}
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   ) : (
