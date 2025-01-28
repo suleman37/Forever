@@ -3,8 +3,8 @@ import Hero_Img from "../assets/frontend_assets/hero_img.png";
 
 const Hero = () => {
   return (
-    <>
-      <div className="flex flex-col sm:flex-row border border-gray-400">
+    <> 
+      <div className="flex flex-col sm:flex-row border border-gray-400 mt-5">
         <div className="w-full sm:w-1/2 flex items-center justify-center py-10 sm:py-0">
           <div className="text-[#414141]">
             <div className="flex items-center  gap-2">
@@ -22,7 +22,7 @@ const Hero = () => {
             </div>
           </div>
         </div>
-        <img className="w-full sm:w-1/2" src={Hero_Img} alt="Hero_Img" />
+        <img className="w-full sm:w-1/2 bg-black" src={Hero_Img} alt="Hero_Img" />
       </div>
     </>
   );

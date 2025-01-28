@@ -18,7 +18,7 @@ const App = () => {
     <>
       <div className="px-4 sm:px-7 md:px-[5vw] lg:px-[7vw]">
         <Navbar />
-        <Searchbar/>
+        <Searchbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -30,7 +30,7 @@ const App = () => {
           <Route path="/place-order" element={<PlaceOrder />} />
           <Route path="/product/:id" element={<Product />} />
         </Routes>
-        <Footer/>
+        <Footer />
       </div>
     </>
   );
