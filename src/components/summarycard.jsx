@@ -10,16 +10,16 @@ const Summary = () => {
   return (
     <>
       <div
-        className="flex flex-col sm:flex-row border bg-[#101011] mt-[300px] rounded-[20px]"
+        className="flex flex-col md:flex-row border bg-[#101011] mt-[300px] rounded-[20px]"
         style={{
-          backgroundImage: `url(${wire}), url(${wire}), url(${wire}))`,
+          backgroundImage: `url(${wire}), url(${wire}), url(${wire})`,
           backgroundSize: "cover",
           backgroundPosition: "top left, center, bottom right",
           backgroundRepeat: "repeat",
           gap: "5px",
         }}
       >
-        <div className="w-full sm:w-1/2 flex items-center justify-center py-10 sm:py-0">
+        <div className="w-full sm:w-1/2 flex items-center justify-center py-10 sm:py-0 " style={{ padding: "10px 30px" }}>
           <div className="text-white">
             <button className="bg-black bg-opacity-50 text-white px-4 py-2 rounded-full">
               🔥 Download Our App
@@ -33,20 +33,24 @@ const Summary = () => {
               perticipations, and enjoy seamless doorstep delivery <br />
               anytime, anywhere.
             </p>
-            <div className="flex items-center gap-4 mt-4">
+            <div className="flex flex-col sm:flex-row items-start gap-4 mt-4">
               <img
                 src={mobile_store}
                 alt="Icon 1"
-                className="w-[150px] h-auto"
+                className="w-[100px] sm:w-[150px] h-auto"
               />
-              <img src={mobile_app} alt="Icon 2" className="w-[150px] h-auto" />
+              <img
+                src={mobile_app}
+                alt="Icon 2"
+                className="w-[100px] sm:w-[150px] h-auto"
+              />
               <div className="flex">
-                <img src={Frame} alt="Frame" className="w-[40px]  h-auto" />
+                <img src={Frame} alt="Frame" className="w-[30px] sm:w-[40px] h-auto" />
                 <div>
                   <img
                     src={vector}
                     alt="vector"
-                    className="w-[50px] h-auto self-start"
+                    className="w-[40px] sm:w-[50px] h-auto self-start"
                   />
                   <h5 className="ml-3">
                     <b>Watch Video</b>

@@ -81,7 +81,7 @@ const Product = () => {
                 </div>
               ))}
             </div>
-            <button className="border border-black-300 px-4 py-4 cursor-pointer bg-black text-white active:bg-gray-700 w-[500px]">
+            <button className="border border-black-300 px-4 py-4 cursor-pointer bg-black text-white active:bg-gray-700 w-full">
               ADD TO CART
             </button>
             <hr className="mt-8 sm:4/5" />

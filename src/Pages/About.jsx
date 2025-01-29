@@ -1,11 +1,12 @@
-import React from 'react'
+import React from 'react';
+import Summary from '../components/summarycard';
 
 const About = () => {
   return (
-    <div>
-      
-    </div>
+    <>
+     <Summary/> 
+    </>
   )
 }
 
-export default About
+export default About;
