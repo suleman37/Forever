@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { ShopContext } from "../context/ShopContext";
 import star_icon from "../assets/frontend_assets/star_icon.png";
 import dull_star_icon from "../assets/frontend_assets/star_dull_icon.png";
+import RelatedProduct from "../components/RelatedProduct";
 
 const Product = () => {
   const { id } = useParams();
@@ -115,6 +116,10 @@ const Product = () => {
           </p>
         </div>
       </div>
+      <RelatedProduct
+        category={productData.category}
+        subcategory={productData.subcategory}
+      />
     </div>
   ) : (
     <div className="opacity-0"></div>
