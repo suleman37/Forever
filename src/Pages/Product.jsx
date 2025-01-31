@@ -7,18 +7,16 @@ import RelatedProduct from "../components/RelatedProduct";
 
 const Product = () => {
   const { id } = useParams();
-  const { products, currency } = useContext(ShopContext);
+  const { products, currency , AddToCart } = useContext(ShopContext);
   const [productData, setProductData] = useState(false);
   const [image, setImage] = useState("");
   const [size, setSize] = useState("");
-  console.log(id);
 
   const fetchProductData = async () => {
     products.map((item) => {
       if (item.id === id) {
         setProductData(item);
         setImage(item.image[0]);
-        console.log(item);
         return null;
       }
     });
@@ -82,7 +80,7 @@ const Product = () => {
                 </div>
               ))}
             </div>
-            <button className="border border-black-300 px-4 py-4 cursor-pointer bg-black text-white active:bg-gray-700 w-full">
+            <button className="border border-black-300 px-4 py-4 cursor-pointer bg-black text-white active:bg-gray-700 w-full" onClick={() => AddToCart(productData.id, size)}>
               ADD TO CART
             </button>
             <hr className="mt-8 sm:4/5" />
