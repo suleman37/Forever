@@ -1,4 +1,4 @@
-import React, { useState , useContext} from "react";
+import React, { useState, useContext } from "react";
 import { ShopContext } from "../context/ShopContext";
 import logo from "../assets/frontend_assets/logo.png";
 import search from "../assets/frontend_assets/search_icon.png";
@@ -10,11 +10,13 @@ import Menu from "../assets/frontend_assets/menu_icon.png";
 
 const Navbar = () => {
   const [visible, setVisible] = useState(false);
-  const { setShowSearch , getCartItem } = useContext(ShopContext);
+  const { setShowSearch, getCartItem } = useContext(ShopContext);
   return (
     <React.Fragment>
       <div className="flex items-center justify-between py-5 font-medium">
-        <Link to="/"><img src={logo} className="w-36" alt="Logo" /></Link>
+        <Link to="/">
+          <img src={logo} className="w-36" alt="Logo" />
+        </Link>
         <ul className="sm:flex gap-5 text-sm text-gray-700 hidden">
           <NavLink to="/" className="flex flex-col items-center gap-1">
             <p>HOME</p>
@@ -37,7 +39,12 @@ const Navbar = () => {
           </NavLink>
         </ul>
         <div className="flex items-center gap-6">
-          <img src={search} className="w-5 cursor-pointer" alt="search_icon" onClick={() => setShowSearch(true)} />
+          <img
+            src={search}
+            className="w-5 cursor-pointer"
+            alt="search_icon"
+            onClick={() => setShowSearch(true)}
+          />
           <div className="group relative">
             <img
               src={profile_icon}
@@ -55,7 +62,7 @@ const Navbar = () => {
           <Link className="relative" to="/cart">
             <img src={Cart} className="w-5 min-w-5" alt="Cart" />
             <p className="absolute right-[-10px] bottom-[-8px] w-5 flex items-center justify-center bg-black text-white aspect-square rounded-full text-[12px]">
-              {getCartItem()}
+              {getCartItem() || 0}
             </p>
           </Link>
           <img
