@@ -19,7 +19,10 @@ const Summary = () => {
           gap: "5px",
         }}
       >
-        <div className="w-full sm:w-1/2 flex items-center justify-center py-5 sm:py-0 " style={{ padding: "10px 30px" }}>
+        <div
+          className="w-full sm:w-1/2 flex items-center justify-center py-5 sm:py-0 "
+          style={{ padding: "10px 30px" }}
+        >
           <div className="text-white">
             <button className="bg-black bg-opacity-50 text-white px-4 py-2 rounded-full">
               🔥 Download Our App
@@ -45,7 +48,11 @@ const Summary = () => {
                 className="w-[100px] sm:w-[150px] h-auto"
               />
               <div className="flex">
-                <img src={Frame} alt="Frame" className="w-[30px] sm:w-[40px] h-auto" />
+                <img
+                  src={Frame}
+                  alt="Frame"
+                  className="w-[30px] sm:w-[40px] h-auto"
+                />
                 <div>
                   <img
                     src={vector}
