@@ -12,7 +12,7 @@ import Product from "./Pages/Product";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Searchbar from "./components/Searchbar";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
