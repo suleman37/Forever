@@ -8,11 +8,14 @@ export const ShopContext = createContext(null);
 const ShopContextProvider = (props) => {
   const currency = "$";
   const deliveryCharge = 10;
-  const backendurl = import.meta.env.VITE_BACKEND_URL;
   const [search, setSearch] = useState("");
   const [showsearch, setShowSearch] = useState(false);
   const [cartItems, setCartItems] = useState({});
   const [product, setProduct] = useState([]);
+  // const backendUrl = process.env.REACT_APP_BACKEND_URL;
+  // console.log('Backend URL:', backendUrl);
+
+
 
   const AddToCart = async (itemId, size) => {
     if (!size) {
@@ -50,16 +53,22 @@ const ShopContextProvider = (props) => {
     return totalcount;
   };
 
-  const getProductsData = async () => {
-    try {
-      const response = await axios.get(`${backendurl}/api/product/list`);
-    } catch (error) {
-      
-    }
-  }
-  useEffect(()=>{
-    getProductsData()
-  },[])
+  // const getProductsData = async () => {
+  //   try {
+  //     const response = await axios.get(`http://localhost:4000/api/product/list`);
+  //     console.log(response.data)
+  //     if (response.data.sucess) {
+  //       setProduct(response.data.products);
+  //     }else{
+  //       toast.error(response.data.message)
+  //     }
+  //   } catch (error) {
+  //     toast.error(error.message)
+  //   }
+  // }
+  // useEffect(()=>{
+  //   getProductsData()
+  // },[])
 
   const CartCount = () => {
     let totalcount = 0;
@@ -93,7 +102,6 @@ const ShopContextProvider = (props) => {
     getCartItem,
     updateQuantity,
     CartCount,
-    backendurl
   };
 
   return (
