@@ -1,15 +1,18 @@
 import { createContext, useEffect, useState } from "react";
-import { products } from "../assets/frontend_assets/assets";
 import { toast } from "react-toastify";
+import { products } from "../assets/frontend_assets/assets";
+import axios from "axios";
 
 export const ShopContext = createContext(null);
 
 const ShopContextProvider = (props) => {
   const currency = "$";
   const deliveryCharge = 10;
+  const backendurl = import.meta.env.VITE_BACKEND_URL;
   const [search, setSearch] = useState("");
   const [showsearch, setShowSearch] = useState(false);
   const [cartItems, setCartItems] = useState({});
+  const [product, setProduct] = useState([]);
 
   const AddToCart = async (itemId, size) => {
     if (!size) {
@@ -47,19 +50,27 @@ const ShopContextProvider = (props) => {
     return totalcount;
   };
 
+  const getProductsData = async () => {
+    try {
+      const response = await axios.get(`${backendurl}/api/product/list`);
+    } catch (error) {
+      
+    }
+  }
+  useEffect(()=>{
+    getProductsData()
+  },[])
 
-  const CartCount =  () => {
+  const CartCount = () => {
     let totalcount = 0;
     for (const items in cartItems) {
-    let iteminfo = products.find((product) => product.id === items);
-    for (let item in cartItems[items]) {
+      let iteminfo = products.find((product) => product.id === items);
+      for (let item in cartItems[items]) {
         try {
           if (item && cartItems[items][item] > 0) {
             totalcount += iteminfo.price * cartItems[items][item];
           }
-        } catch (error) {
-          
-        }
+        } catch (error) {}
       }
     }
     return totalcount;
@@ -81,7 +92,8 @@ const ShopContextProvider = (props) => {
     AddToCart,
     getCartItem,
     updateQuantity,
-    CartCount
+    CartCount,
+    backendurl
   };
 
   return (
