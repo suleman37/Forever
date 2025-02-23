@@ -11,7 +11,7 @@ const BestSeller = () => {
   useEffect(() => {
     const bestseller = products.filter((item) => item.bestseller);
     setBestSeller(bestseller.slice(0, 5));
-  }, []);
+  }, [products]);
 
 
   return (
